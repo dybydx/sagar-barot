@@ -161,6 +161,14 @@ import { stats, allPosts, press, snbStats } from "../data/site";
     box-shadow: 0 14px 40px rgba(27, 25, 22, 0.1);
   }
 
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .hero-stat-card {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -18px;
+    }
+  }
+
   .hero-stat-num {
     font-family: "Newsreader", serif;
     font-size: 26px;
@@ -310,5 +318,79 @@ import { stats, allPosts, press, snbStats } from "../data/site";
 
   .cta-btn:hover {
     background: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 40px 20px 32px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero-image-wrapper {
+      max-width: 400px;
+    }
+
+    .hero-stat-card {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -18px;
+    }
+
+    .hero-text {
+      font-size: 17px;
+      max-width: none;
+    }
+
+    .philosophy {
+      padding: 72px 20px;
+    }
+
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .snb-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .snb-stats {
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .snb-text {
+      font-size: 17px;
+    }
+
+    .post-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .cta-inner {
+      padding: 72px 20px;
+    }
+
+    .cta-text {
+      font-size: 17px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .hero-grid {
+      gap: 40px;
+    }
+
+    .post-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 </style>

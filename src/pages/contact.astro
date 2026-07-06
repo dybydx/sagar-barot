@@ -241,4 +241,15 @@ const addrParts = site.address.split(", ");
     margin: 0;
     max-width: 420px;
   }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

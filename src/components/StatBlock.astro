@@ -48,4 +48,40 @@ const { stats } = Astro.props;
     text-transform: uppercase;
     margin-top: 10px;
   }
+
+  @media (max-width: 768px) {
+    .stat-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-item:nth-child(2) {
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .stat-item:nth-child(3),
+    .stat-item:nth-child(4) {
+      border-top: 1px solid var(--rule);
+    }
+
+    .stat-num {
+      font-size: 34px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stat-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stat-item {
+      border-left: none !important;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .stat-item + .stat-item {
+      border-top: 1px solid var(--rule);
+    }
+  }
 </style>

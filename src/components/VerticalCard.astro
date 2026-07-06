@@ -45,4 +45,17 @@ const { vertical: v } = Astro.props;
     color: var(--ink2);
     margin: 0;
   }
+
+  @media (max-width: 768px) {
+    .vertical-card {
+      border-left: none;
+      padding: 28px 0;
+      padding-left: 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .vertical-card:last-child {
+      border-bottom: none;
+    }
+  }
 </style>

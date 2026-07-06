@@ -128,4 +128,24 @@ import { navItems, site } from "../data/site";
     color: var(--ink3);
     text-transform: uppercase;
   }
+
+  @media (max-width: 768px) {
+    .footer-inner {
+      padding: 48px 20px 32px;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .footer-desc {
+      max-width: none;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
 </style>

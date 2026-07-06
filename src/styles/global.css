@@ -168,3 +168,9 @@ button {
   margin: 0 auto;
   padding: 0 32px;
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}

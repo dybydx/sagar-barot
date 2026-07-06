@@ -64,4 +64,25 @@ const posts = allPosts.slice(1);
     grid-template-columns: repeat(3, 1fr);
     gap: 40px 32px;
   }
+
+  @media (max-width: 768px) {
+    .posts-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .featured .container {
+      padding: 0 20px 32px;
+    }
+
+    .posts .container {
+      padding: 32px 20px 72px;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .posts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 </style>

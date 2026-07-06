@@ -122,4 +122,33 @@ import { timeline, values } from "../data/site";
   .values {
     border-top: 1px solid var(--rule);
   }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 40px 20px 32px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .hero-text {
+      max-width: none;
+    }
+
+    .story {
+      padding: 48px 20px;
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

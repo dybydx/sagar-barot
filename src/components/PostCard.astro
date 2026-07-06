@@ -130,4 +130,15 @@ const { post: p, featured } = Astro.props;
     font: 500 12px "Hanken Grotesk";
     color: var(--ink3);
   }
+
+  @media (max-width: 768px) {
+    .post-card--featured {
+      padding-top: 28px;
+    }
+
+    .post-featured-inner {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
 </style>

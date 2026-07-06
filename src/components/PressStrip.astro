@@ -54,4 +54,22 @@ const { press } = Astro.props;
     font-size: 22px;
     color: var(--ink3);
   }
+
+  @media (max-width: 768px) {
+    .press-inner {
+      flex-direction: column;
+      gap: 24px;
+      padding: 40px 20px;
+      align-items: flex-start;
+    }
+
+    .press-logos {
+      justify-content: flex-start;
+      gap: 28px;
+    }
+
+    .press-name {
+      font-size: 19px;
+    }
+  }
 </style>
