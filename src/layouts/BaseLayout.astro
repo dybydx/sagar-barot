@@ -12,18 +12,28 @@ import "@fontsource/space-mono/700.css";
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
 
 export interface Props {
   title: string;
   description: string;
   canonical?: string;
   ogImage?: string;
+  ogType?: "website" | "article";
   currentPage: string;
 }
 
-const { title, description, canonical, ogImage, currentPage } = Astro.props;
+const { title, description, canonical, ogImage, ogType = "website", currentPage } = Astro.props;
 const siteUrl = "https://sagarbarot.com";
 const ogImageUrl = ogImage || `${siteUrl}/og-default.jpg`;
+const pageTitle = currentPage === "home" ? title : `${title} | Sagar Barot`;
+const addrParts = site.address.split(", ");
+const streetAddr = addrParts.slice(0, -2).join(", ");
+const locality = addrParts[addrParts.length - 2];
+const lastPart = addrParts[addrParts.length - 1];
+const regionMatch = lastPart.match(/^(.+?)\s*[–-]\s*(.+)$/);
+const region = regionMatch ? regionMatch[1].trim().replace(/^Mumbai$/, "MH") : "MH";
+const postalCode = regionMatch ? regionMatch[2].trim() : "400 057";
 ---
 
 <!doctype html>
@@ -31,13 +41,13 @@ const ogImageUrl = ogImage || `${siteUrl}/og-default.jpg`;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} | Sagar Barot</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical || `${siteUrl}${Astro.url.pathname}`} />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} | Sagar Barot`} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical || `${siteUrl}${Astro.url.pathname}`} />
     <meta property="og:image" content={ogImageUrl} />
@@ -45,7 +55,7 @@ const ogImageUrl = ogImage || `${siteUrl}/og-default.jpg`;
     <meta property="og:locale" content="en_IN" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | Sagar Barot`} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
@@ -63,6 +73,31 @@ const ogImageUrl = ogImage || `${siteUrl}/og-default.jpg`;
       },
       description: "Second-generation real estate developer in Mumbai, specialising in luxury residences, redevelopment and commercial spaces.",
       url: siteUrl,
+      sameAs: [site.instagram],
+    })} />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": ["Organization", "RealEstateAgent"],
+      name: "SNB Group of Companies",
+      legalName: "SNB Group of Companies",
+      description: "Premium residential, commercial, mixed-use and redevelopment projects across Mumbai, Lonavala and Karjat.",
+      url: siteUrl,
+      email: site.email,
+      telephone: site.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: streetAddr,
+        addressLocality: locality,
+        addressRegion: region,
+        postalCode,
+        addressCountry: "IN",
+      },
+      founder: {
+        "@type": "Person",
+        name: "Sagar Barot",
+      },
+      sameAs: [site.instagram],
     })} />
   </head>
   <body>

@@ -57,6 +57,15 @@ const rest = featured ? posts.slice(1) : [];
   <Newsletter />
 </BaseLayout>
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://sagarbarot.com/" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://sagarbarot.com/blog/" },
+  ],
+})} />
+
 <style>
   .hero-title {
     font-family: "Newsreader", serif;

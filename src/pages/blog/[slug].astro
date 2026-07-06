@@ -24,6 +24,8 @@ const meta = `${months[d.getMonth()]} ${d.getFullYear()} \u00b7 ${post.data.read
   title={post.data.title}
   description={post.data.excerpt}
   canonical={articleUrl}
+  ogImage={post.data.ogImage}
+  ogType="article"
   currentPage="blog"
 >
   <article class="blog-article">
@@ -47,6 +49,7 @@ const meta = `${months[d.getMonth()]} ${d.getFullYear()} \u00b7 ${post.data.read
   "@type": "Article",
   headline: post.data.title,
   description: post.data.excerpt,
+  image: post.data.ogImage ? `${siteUrl}${post.data.ogImage}` : undefined,
   author: {
     "@type": "Person",
     name: "Sagar Barot",
@@ -56,11 +59,22 @@ const meta = `${months[d.getMonth()]} ${d.getFullYear()} \u00b7 ${post.data.read
     name: "SNB Group of Companies",
   },
   datePublished: post.data.date.toISOString().split("T")[0],
+  dateModified: post.data.date.toISOString().split("T")[0],
   url: articleUrl,
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id": articleUrl,
   },
+})} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog/` },
+    { "@type": "ListItem", position: 3, name: post.data.title, item: articleUrl },
+  ],
 })} />
 
 <style>
