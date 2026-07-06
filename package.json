@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "optimize": "node scripts/optimize-images.mjs",
+    "build": "node scripts/optimize-images.mjs && astro build",
+    "preview": "node scripts/optimize-images.mjs && astro preview"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.2",
@@ -15,5 +16,8 @@
     "@fontsource/newsreader": "^5.2.6",
     "@fontsource/space-mono": "^5.2.6",
     "astro": "^7.0.6"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
   }
 }

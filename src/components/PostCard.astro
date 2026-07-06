@@ -6,6 +6,7 @@ export interface Props {
     slug: string;
     excerpt?: string;
     meta: string;
+    ogImage?: string;
   };
   featured?: boolean;
 }
@@ -17,7 +18,14 @@ const href = p?.slug ? `/blog/${p.slug}/` : "#";
   {featured ? (
     <div class="post-featured-inner">
       <div class="post-img post-img--featured">
-        <span>Featured — cover image</span>
+        {p.ogImage ? (
+          <picture>
+            <source srcset={p.ogImage} type="image/webp" />
+            <img src={p.ogImage.replace(/\.webp$/, '.jpg')} alt={p.title} class="post-img-el" />
+          </picture>
+        ) : (
+          <span>Featured — cover image</span>
+        )}
       </div>
       <div class="post-body">
         <div class="post-eyebrow">Featured · {p.cat}</div>
@@ -29,7 +37,14 @@ const href = p?.slug ? `/blog/${p.slug}/` : "#";
   ) : (
     <>
       <div class="post-img">
-        <span>{p.cat}</span>
+        {p.ogImage ? (
+          <picture>
+            <source srcset={p.ogImage} type="image/webp" />
+            <img src={p.ogImage.replace(/\.webp$/, '.jpg')} alt={p.title} class="post-img-el" />
+          </picture>
+        ) : (
+          <span>{p.cat}</span>
+        )}
       </div>
       <div class="post-cat">{p.cat}</div>
       <h3 class="post-title">{p.title}</h3>
@@ -75,6 +90,13 @@ const href = p?.slug ? `/blog/${p.slug}/` : "#";
     justify-content: center;
     background-color: #e9e1d2;
     background-image: repeating-linear-gradient(135deg, transparent, transparent 9px, rgba(110, 79, 42, 0.07) 9px, rgba(110, 79, 42, 0.07) 10px);
+    border-radius: 3px;
+  }
+
+  .post-img-el {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 3px;
   }
 

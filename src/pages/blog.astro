@@ -16,6 +16,7 @@ const posts = allPosts.map((p) => {
     slug: p.id.replace(/\.(md|mdx)$/, ""),
     excerpt: p.data.excerpt,
     meta: `${months[d.getMonth()]} ${d.getFullYear()} \u00b7 ${p.data.readTime}`,
+    ogImage: p.data.ogImage,
   };
 });
 const featured = posts.length > 0 ? posts[0] : null;
