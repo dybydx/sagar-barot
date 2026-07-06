@@ -5,7 +5,7 @@ export interface Props {
 const { value: v } = Astro.props;
 ---
 
-<div class="value-card">
+<div class="value-card animate-in">
   <div class="value-icon">{v.i}</div>
   <h3 class="value-title">{v.t}</h3>
   <p class="value-desc">{v.d}</p>
@@ -16,6 +16,11 @@ const { value: v } = Astro.props;
     background: var(--bg);
     padding: 34px 26px;
     min-height: 220px;
+    transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+
+  .value-card:hover {
+    transform: translateY(-3px);
   }
 
   .value-icon {

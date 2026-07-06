@@ -30,14 +30,14 @@ const meta = `${months[d.getMonth()]} ${d.getFullYear()} \u00b7 ${post.data.read
 >
   <article class="blog-article">
     <div class="container">
-      <header class="blog-header">
+      <header class="blog-header load-in">
         <a href="/blog/" class="blog-back">&larr; Back to all writing</a>
         <div class="blog-cat">{post.data.category}</div>
         <h1 class="blog-title">{post.data.title}</h1>
         <div class="blog-meta">{meta}</div>
       </header>
 
-      <div class="blog-content">
+      <div class="blog-content animate-in">
         <Content />
       </div>
     </div>

@@ -29,7 +29,7 @@ const homePosts = blogPosts.map((p) => {
 >
   <section class="hero">
     <div class="hero-grid">
-      <div>
+      <div class="load-in">
         <div class="eyebrow">Founder & Managing Director — SNB Group</div>
         <h1 class="hero-title">A second-generation builder shaping how Mumbai lives, works & grows.</h1>
         <p class="hero-text">I'm Sagar Barot. For over two decades I have led SNB Group in crafting luxury residences, redevelopment and commercial spaces across Mumbai — built on intent, transparency and longevity.</p>
@@ -38,7 +38,7 @@ const homePosts = blogPosts.map((p) => {
           <a href="/about/" class="btn-secondary">Read my story</a>
         </div>
       </div>
-      <div class="hero-image-wrapper">
+      <div class="hero-image-wrapper load-in">
         <div class="placeholder-img" style="aspect-ratio:4/5">
           <span style="margin-bottom:18px;font:500 11px 'Space Mono',monospace;letter-spacing:.1em;color:#9a917f;text-transform:uppercase;background:var(--panel);padding:6px 12px;border-radius:2px">Portrait — Sagar Barot</span>
         </div>
@@ -54,7 +54,7 @@ const homePosts = blogPosts.map((p) => {
     <StatBlock stats={stats} />
   </section>
 
-  <section class="philosophy">
+  <section class="philosophy animate-in">
     <div class="philosophy-inner">
       <div class="eyebrow" style="text-align:center">Philosophy</div>
       <p class="philosophy-quote">"We don't build to trends. We build for how people actually live — and for whoever lives there next."</p>
@@ -62,7 +62,7 @@ const homePosts = blogPosts.map((p) => {
     </div>
   </section>
 
-  <section class="section-panel">
+  <section class="section-panel animate-in">
     <div class="container" style="padding:96px 32px">
       <div class="section-header">
         <div>
@@ -92,7 +92,7 @@ const homePosts = blogPosts.map((p) => {
   </section>
 
   {homePosts.length > 0 && (
-    <section class="container" style="padding:96px 32px">
+    <section class="container animate-in" style="padding:96px 32px">
       <div class="section-header">
         <div>
           <div class="eyebrow">Writing & Notes</div>
@@ -108,9 +108,9 @@ const homePosts = blogPosts.map((p) => {
     </section>
   )}
 
-  <PressStrip press={press} />
+  <div class="animate-in"><PressStrip press={press} /></div>
 
-  <section class="cta-section">
+  <section class="cta-section animate-in">
     <div class="cta-inner">
       <h2 class="cta-title">Let's build something lasting.</h2>
       <p class="cta-text">Whether it's a redevelopment, a partnership or a conversation about Mumbai's next — I'd be glad to hear from you.</p>

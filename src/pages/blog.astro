@@ -28,7 +28,7 @@ const rest = featured ? posts.slice(1) : [];
   currentPage="blog"
 >
   <section class="hero">
-    <div class="container" style="padding:72px 32px 56px">
+    <div class="container load-in" style="padding:72px 32px 56px">
       <div class="eyebrow">Writing</div>
       <h1 class="hero-title">Notes on building Mumbai.</h1>
       <p class="hero-text">On real estate, redevelopment, design, leadership and the craft of running a family business — in public.</p>
@@ -36,7 +36,7 @@ const rest = featured ? posts.slice(1) : [];
   </section>
 
   {featured && (
-    <section class="featured">
+    <section class="featured animate-in">
       <div class="container" style="padding:0 32px 40px">
         <PostCard post={featured} featured={true} />
       </div>
@@ -44,7 +44,7 @@ const rest = featured ? posts.slice(1) : [];
   )}
 
   {rest.length > 0 && (
-    <section class="posts">
+    <section class="posts animate-in">
       <div class="container" style="padding:48px 32px 96px">
         <div class="posts-grid">
           {rest.map((p) => (

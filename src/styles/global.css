@@ -49,17 +49,6 @@ button {
   font-family: inherit;
 }
 
-@keyframes pageIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -68,6 +57,46 @@ button {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+.animate-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94),
+              transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.animate-in--visible {
+  opacity: 1;
+  transform: none;
+}
+
+.animate-in--d2 { transition-delay: 0.12s; }
+.animate-in--d3 { transition-delay: 0.24s; }
+.animate-in--d4 { transition-delay: 0.36s; }
+
+.load-in > * {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+.load-in > :nth-child(1) { animation-delay: 0.05s; }
+.load-in > :nth-child(2) { animation-delay: 0.15s; }
+.load-in > :nth-child(3) { animation-delay: 0.25s; }
+.load-in > :nth-child(4) { animation-delay: 0.35s; }
+.load-in > :nth-child(5) { animation-delay: 0.45s; }
+.load-in > :nth-child(6) { animation-delay: 0.55s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  [class*="load-in"] > * {
+    animation: none;
+    opacity: 1;
   }
 }
 

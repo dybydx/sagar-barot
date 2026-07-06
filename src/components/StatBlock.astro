@@ -6,8 +6,8 @@ const { stats } = Astro.props;
 ---
 
 <div class="stat-grid">
-  {stats.map((s) => (
-    <div class="stat-item">
+  {stats.map((s, i) => (
+    <div class="stat-item animate-in" style={`transition-delay:${i * 0.12}s`}>
       <div class="stat-num">{s.n}</div>
       <div class="stat-label">{s.l}</div>
     </div>
