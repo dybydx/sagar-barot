@@ -45,15 +45,15 @@ const tagOngoing = { status: "Ongoing", tagBg: "var(--accent)", tagFg: "#fff" };
 const tagDone = { status: "Completed", tagBg: "var(--ink)", tagFg: "var(--bg)" };
 
 export const projects = [
-  { name: "Signature", loc: "Hanuman Road, Vile Parle East", area: "98,000 sq.ft", ...tagOngoing },
-  { name: "Sagar Avenue", loc: "Lalubhai Park Road, Andheri West", area: "65,000 sq.ft", ...tagOngoing },
-  { name: "Karjat Township", loc: "Karjat", area: "7,25,000 sq.ft", ...tagOngoing },
-  { name: "Sagar Imperial", loc: "Dixit Road, Vile Parle East", area: "35,000 sq.ft", ...tagDone },
-  { name: "Goregaon One", loc: "MG Road, Goregaon West", area: "54,000 sq.ft", ...tagOngoing },
-  { name: "SNB Villa", loc: "Mahant Road, Vile Parle East", area: "30,500 sq.ft", ...tagOngoing },
-  { name: "Goldenleaf", loc: "Golden Valley, Lonavala", area: "1,20,000 sq.ft", ...tagDone },
-  { name: "Sargam", loc: "Dixit Road, Vile Parle East", area: "45,000 sq.ft", ...tagDone },
-  { name: "Nayak Bungalow", loc: "MG Road, Vile Parle East", area: "52,000 sq.ft", ...tagDone },
+  { name: "Signature", loc: "Hanuman Road, Vile Parle East", area: "98,000 sq.ft", img: "/images/projects/signature.jpg", ...tagOngoing },
+  { name: "Sagar Avenue", loc: "Lalubhai Park Road, Andheri West", area: "65,000 sq.ft", img: "/images/projects/sagar-avenue.jpg", ...tagOngoing },
+  { name: "Karjat Township", loc: "Karjat", area: "7,25,000 sq.ft", img: "/images/projects/karjat-township.jpg", ...tagOngoing },
+  { name: "Sagar Imperial", loc: "Dixit Road, Vile Parle East", area: "35,000 sq.ft", img: "/images/projects/sagar-imperial.jpg", ...tagDone },
+  { name: "Goregaon One", loc: "MG Road, Goregaon West", area: "54,000 sq.ft", img: "/images/projects/goregaon-one.jpg", ...tagOngoing },
+  { name: "SNB Villa", loc: "Mahant Road, Vile Parle East", area: "30,500 sq.ft", img: "/images/projects/snb-villa.jpg", ...tagOngoing },
+  { name: "Goldenleaf", loc: "Golden Valley, Lonavala", area: "1,20,000 sq.ft", img: "/images/projects/goldenleaf.jpg", ...tagDone },
+  { name: "Sargam", loc: "Dixit Road, Vile Parle East", area: "45,000 sq.ft", img: "/images/projects/sargam.jpg", ...tagDone },
+  { name: "Nayak Bungalow", loc: "MG Road, Vile Parle East", area: "52,000 sq.ft", img: "/images/projects/nayak-bungalow.jpg", ...tagDone },
 ];
 
 export const press = ["ET Realty", "Mumbai Mirror", "CREDAI", "NAREDCO", "Property Today"];

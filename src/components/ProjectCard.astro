@@ -7,6 +7,7 @@ export interface Props {
     status: string;
     tagBg: string;
     tagFg: string;
+    img?: string;
   };
 }
 const { project: p } = Astro.props;
@@ -14,6 +15,12 @@ const { project: p } = Astro.props;
 
 <div class="project-card">
   <div class="project-img" style="position:relative">
+    {p.img ? (
+      <picture>
+        <source srcset={p.img.replace(/\.(jpe?g|png)$/, '.webp')} type="image/webp" />
+        <img src={p.img} alt={p.name} class="project-img-el" />
+      </picture>
+    ) : null}
     <span class="project-tag" style={{ background: p.tagBg, color: p.tagFg }}>{p.status}</span>
     <span class="project-img-label">{p.name}</span>
   </div>
@@ -41,6 +48,15 @@ const { project: p } = Astro.props;
     background-image: repeating-linear-gradient(135deg, transparent, transparent 9px, rgba(110, 79, 42, 0.07) 9px, rgba(110, 79, 42, 0.07) 10px);
     border-radius: 3px;
     overflow: hidden;
+  }
+
+  .project-img-el {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
   }
 
   .project-tag {
