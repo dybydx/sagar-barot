@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Astro
+.astro/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+*.swp
+*.swo
+*~
+.vscode/settings.json
+
+# Thumbnails
+.thumbnail
+
+# Screenshots (design exports)
+screenshots/
+
+# Original monolithic SPA (kept for reference, to be removed)
+Sagar Barot.dc.html
