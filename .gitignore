@@ -33,3 +33,9 @@ screenshots/
 
 # Original monolithic SPA (kept for reference, to be removed)
 Sagar Barot.dc.html
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
