@@ -54,9 +54,8 @@ const homePosts = blogPosts.map((p) => {
     <StatBlock stats={stats} />
   </section>
 
-  <section class="philosophy animate-in">
+  <section class="philosophy">
     <div class="philosophy-inner">
-      <div class="eyebrow" style="text-align:center">Philosophy</div>
       <p class="philosophy-quote">"We don't build to trends. We build for how people actually live — and for whoever lives there next."</p>
       <div class="philosophy-attribution">Sagar Barot</div>
     </div>
@@ -95,7 +94,6 @@ const homePosts = blogPosts.map((p) => {
     <section class="container animate-in" style="padding:96px 32px">
       <div class="section-header">
         <div>
-          <div class="eyebrow">Writing & Notes</div>
           <h2 class="section-title">On building, well</h2>
         </div>
         <a href="/blog/" class="btn-text">All writing →</a>
@@ -108,7 +106,7 @@ const homePosts = blogPosts.map((p) => {
     </section>
   )}
 
-  <div class="animate-in"><PressStrip press={press} /></div>
+  <div><PressStrip press={press} /></div>
 
   <section class="cta-section animate-in">
     <div class="cta-inner">
@@ -135,10 +133,10 @@ const homePosts = blogPosts.map((p) => {
 
   .hero-title {
     font-family: "Newsreader", serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: clamp(40px, 5.2vw, 68px);
     line-height: 1.02;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.025em;
     margin: 0 0 24px;
     color: var(--ink);
     text-wrap: balance;
@@ -173,11 +171,11 @@ const homePosts = blogPosts.map((p) => {
     position: absolute;
     bottom: -18px;
     left: -18px;
-    background: var(--panel);
-    border: 1px solid var(--rule);
+    background: var(--stone);
+    border: 1px solid rgba(244, 239, 230, 0.15);
     border-radius: 3px;
-    padding: 14px 18px;
-    box-shadow: 0 14px 40px rgba(27, 25, 22, 0.1);
+    padding: 18px 22px;
+    box-shadow: 0 14px 40px rgba(27, 25, 22, 0.18);
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
@@ -190,20 +188,21 @@ const homePosts = blogPosts.map((p) => {
 
   .hero-stat-num {
     font-family: "Newsreader", serif;
-    font-size: 26px;
+    font-size: 28px;
+    font-weight: 300;
     line-height: 1;
-    color: var(--ink);
+    color: var(--bg);
   }
 
   .hero-stat-suffix {
     font-size: 15px;
-    color: var(--accent-deep);
+    color: rgba(244, 239, 230, 0.65);
   }
 
   .hero-stat-label {
     font: 600 9px "Space Mono", monospace;
     letter-spacing: 0.14em;
-    color: var(--ink3);
+    color: rgba(244, 239, 230, 0.5);
     text-transform: uppercase;
     margin-top: 4px;
   }

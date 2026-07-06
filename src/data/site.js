@@ -28,10 +28,10 @@ export const timeline = [
 ];
 
 export const values = [
-  { i: "01", t: "Purpose", d: "Every space is shaped by how people live, work and move through it — not by trends or templates." },
-  { i: "02", t: "Transparency", d: "Clear processes and careful planning bring honesty to complex redevelopment journeys." },
-  { i: "03", t: "Longevity", d: "Materials, layouts and standards chosen to perform well long beyond handover." },
-  { i: "04", t: "Integrity", d: "Consistency and accountability over promises — the basis of a trusted developer." },
+  { t: "Purpose", d: "Every space is shaped by how people live, work and move through it — not by trends or templates." },
+  { t: "Transparency", d: "Clear processes and careful planning bring honesty to complex redevelopment journeys." },
+  { t: "Longevity", d: "Materials, layouts and standards chosen to perform well long beyond handover." },
+  { t: "Integrity", d: "Consistency and accountability over promises — the basis of a trusted developer." },
 ];
 
 export const verticals = [
