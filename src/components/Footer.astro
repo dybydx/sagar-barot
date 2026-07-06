@@ -1,0 +1,131 @@
+---
+import { navItems, site } from "../data/site";
+---
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-name">{site.name}</div>
+        <div class="footer-title">FOUNDER & MD — SNB GROUP</div>
+        <p class="footer-desc">Building luxury residences, redevelopment and commercial spaces across Mumbai for over twenty-five years.</p>
+      </div>
+      <div>
+        <div class="footer-label">Navigate</div>
+        <div class="footer-nav">
+          {navItems.map((item) => (
+            <a href={item.href} class="footer-link">{item.label}</a>
+          ))}
+        </div>
+      </div>
+      <div>
+        <div class="footer-label">Reach</div>
+        <div class="footer-reach">
+          <a href={`mailto:${site.email}`} class="footer-link">{site.email}</a>
+          <a href={`tel:${site.phone.replace(/\s/g, "")}`} class="footer-link">{site.phone}</a>
+          <a href={site.instagram} target="_blank" rel="noopener" class="footer-link">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; {site.year} {site.name} · SNB Group of Companies. All rights reserved.</span>
+      <span class="footer-tagline">{site.tagline}</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--rule);
+    background: var(--panel);
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 32px 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .footer-name {
+    font-family: "Newsreader", serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .footer-title {
+    font: 700 9px "Space Mono", monospace;
+    letter-spacing: 0.3em;
+    color: var(--accent-deep);
+    margin-bottom: 18px;
+  }
+
+  .footer-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink2);
+    margin: 0;
+    max-width: 340px;
+  }
+
+  .footer-label {
+    font: 700 10px "Space Mono", monospace;
+    letter-spacing: 0.16em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-nav,
+  .footer-reach {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    align-items: flex-start;
+  }
+
+  .footer-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: 500 15px "Hanken Grotesk";
+    color: var(--ink2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-link:hover {
+    color: var(--ink);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--rule);
+    margin-top: 44px;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-copy {
+    font: 500 12px "Hanken Grotesk";
+    color: var(--ink3);
+  }
+
+  .footer-tagline {
+    font: 700 9px "Space Mono", monospace;
+    letter-spacing: 0.2em;
+    color: var(--ink3);
+    text-transform: uppercase;
+  }
+</style>

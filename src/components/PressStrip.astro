@@ -1,0 +1,57 @@
+---
+export interface Props {
+  press: string[];
+}
+const { press } = Astro.props;
+---
+
+<section class="press-strip">
+  <div class="press-inner">
+    <div class="press-label">As featured & spoken</div>
+    <div class="press-logos">
+      {press.map((m) => (
+        <span class="press-name">{m}</span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .press-strip {
+    border-top: 1px solid var(--rule);
+  }
+
+  .press-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 54px 32px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .press-label {
+    font: 700 10px "Space Mono", monospace;
+    letter-spacing: 0.2em;
+    color: var(--ink3);
+    text-transform: uppercase;
+  }
+
+  .press-logos {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .press-name {
+    font-family: "Newsreader", serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--ink3);
+  }
+</style>

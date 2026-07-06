@@ -1,0 +1,133 @@
+---
+export interface Props {
+  post: {
+    cat: string;
+    title: string;
+    excerpt?: string;
+    meta: string;
+  };
+  featured?: boolean;
+}
+const { post: p, featured } = Astro.props;
+---
+
+<div class={`post-card${featured ? " post-card--featured" : ""}`}>
+  {featured ? (
+    <div class="post-featured-inner">
+      <div class="post-img post-img--featured">
+        <span>Featured — cover image</span>
+      </div>
+      <div class="post-body">
+        <div class="post-eyebrow">Featured · {p.cat}</div>
+        <h2 class="post-title post-title--featured">{p.title}</h2>
+        <p class="post-excerpt">{p.excerpt}</p>
+        <div class="post-meta">{p.meta}</div>
+      </div>
+    </div>
+  ) : (
+    <>
+      <div class="post-img">
+        <span>{p.cat}</span>
+      </div>
+      <div class="post-cat">{p.cat}</div>
+      <h3 class="post-title">{p.title}</h3>
+      <p class="post-excerpt">{p.excerpt}</p>
+      <div class="post-meta">{p.meta}</div>
+    </>
+  )}
+</div>
+
+<style>
+  .post-card {
+    text-align: left;
+    cursor: default;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .post-card--featured {
+    border-top: 1px solid var(--rule);
+    padding-top: 40px;
+  }
+
+  .post-featured-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .post-img {
+    aspect-ratio: 3/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9e1d2;
+    background-image: repeating-linear-gradient(135deg, transparent, transparent 9px, rgba(110, 79, 42, 0.07) 9px, rgba(110, 79, 42, 0.07) 10px);
+    border-radius: 3px;
+  }
+
+  .post-img span {
+    font: 500 10px "Space Mono", monospace;
+    letter-spacing: 0.1em;
+    color: #9a917f;
+    text-transform: uppercase;
+  }
+
+  .post-img--featured {
+    aspect-ratio: 16/10;
+  }
+
+  .post-img--featured span {
+    font: 500 11px "Space Mono", monospace;
+  }
+
+  .post-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .post-eyebrow {
+    font: 700 10px "Space Mono", monospace;
+    letter-spacing: 0.18em;
+    color: var(--accent-deep);
+    text-transform: uppercase;
+  }
+
+  .post-cat {
+    font: 700 10px "Space Mono", monospace;
+    letter-spacing: 0.16em;
+    color: var(--accent-deep);
+    text-transform: uppercase;
+  }
+
+  .post-title {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 1.24;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .post-title--featured {
+    font-size: clamp(28px, 3.2vw, 40px);
+    line-height: 1.12;
+  }
+
+  .post-excerpt {
+    font-size: 15px;
+    line-height: 1.58;
+    color: var(--ink2);
+    margin: 0;
+    max-width: 480px;
+  }
+
+  .post-meta {
+    font: 500 12px "Hanken Grotesk";
+    color: var(--ink3);
+  }
+</style>

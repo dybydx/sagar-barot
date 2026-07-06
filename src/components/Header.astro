@@ -1,0 +1,132 @@
+---
+import { navItems } from "../data/site";
+
+export interface Props {
+  currentPage: string;
+}
+
+const { currentPage } = Astro.props;
+---
+
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-name">Sagar Barot</span>
+      <span class="logo-sub">SNB GROUP</span>
+    </a>
+
+    <nav class="nav">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`nav-link${currentPage === item.key ? " nav-link--active" : ""}`}
+        >
+          {item.label}
+          {currentPage === item.key && <span class="nav-underline"></span>}
+        </a>
+      ))}
+    </nav>
+
+    <a href="/contact/" class="btn-header">Get in touch</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .logo {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    text-decoration: none;
+  }
+
+  .logo-name {
+    font-family: "Newsreader", serif;
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .logo-sub {
+    font: 700 9px "Space Mono", monospace;
+    letter-spacing: 0.32em;
+    color: var(--accent-deep);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav-link {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 0;
+    font: 600 12px "Hanken Grotesk";
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink2);
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    color: var(--ink);
+  }
+
+  .nav-underline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .btn-header {
+    background: var(--ink);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    padding: 11px 20px;
+    font: 600 11px "Hanken Grotesk";
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+
+  .btn-header:hover {
+    background: var(--accent-deep);
+  }
+</style>

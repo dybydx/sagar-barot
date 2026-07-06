@@ -1,0 +1,47 @@
+---
+export interface Props {
+  item: { y: string; t: string; d: string };
+}
+const { item: t } = Astro.props;
+---
+
+<div class="timeline-item">
+  <div class="timeline-year">{t.y}</div>
+  <div>
+    <h3 class="timeline-title">{t.t}</h3>
+    <p class="timeline-desc">{t.d}</p>
+  </div>
+</div>
+
+<style>
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+
+  .timeline-year {
+    font-family: "Newsreader", serif;
+    font-size: 32px;
+    color: var(--accent-deep);
+  }
+
+  .timeline-title {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+
+  .timeline-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink2);
+    margin: 0;
+    max-width: 560px;
+  }
+</style>

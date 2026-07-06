@@ -1,0 +1,48 @@
+---
+export interface Props {
+  vertical: { k: string; t: string; d: string };
+}
+const { vertical: v } = Astro.props;
+---
+
+<div class="vertical-card">
+  <div class="vertical-label">{v.k}</div>
+  <h3 class="vertical-title">{v.t}</h3>
+  <p class="vertical-desc">{v.d}</p>
+</div>
+
+<style>
+  .vertical-card {
+    padding: 40px 24px 44px;
+    border-left: 1px solid var(--rule);
+    padding-left: 28px;
+  }
+
+  .vertical-card:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .vertical-label {
+    font: 700 10px "Space Mono", monospace;
+    letter-spacing: 0.14em;
+    color: var(--accent-deep);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .vertical-title {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: 23px;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+
+  .vertical-desc {
+    font-size: 14.5px;
+    line-height: 1.58;
+    color: var(--ink2);
+    margin: 0;
+  }
+</style>

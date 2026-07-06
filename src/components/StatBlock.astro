@@ -1,0 +1,51 @@
+---
+export interface Props {
+  stats: { n: string; l: string }[];
+}
+const { stats } = Astro.props;
+---
+
+<div class="stat-grid">
+  {stats.map((s) => (
+    <div class="stat-item">
+      <div class="stat-num">{s.n}</div>
+      <div class="stat-label">{s.l}</div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .stat-grid {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stat-item {
+    padding: 34px 24px 34px 0;
+    border-left: 1px solid var(--rule);
+    padding-left: 28px;
+  }
+
+  .stat-item:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .stat-num {
+    font-family: "Newsreader", serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font: 600 10px "Space Mono", monospace;
+    letter-spacing: 0.14em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+</style>

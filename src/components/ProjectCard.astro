@@ -1,0 +1,90 @@
+---
+export interface Props {
+  project: {
+    name: string;
+    loc: string;
+    area: string;
+    status: string;
+    tagBg: string;
+    tagFg: string;
+  };
+}
+const { project: p } = Astro.props;
+---
+
+<div class="project-card">
+  <div class="project-img" style="position:relative">
+    <span class="project-tag" style={{ background: p.tagBg, color: p.tagFg }}>{p.status}</span>
+    <span class="project-img-label">{p.name}</span>
+  </div>
+  <div>
+    <h3 class="project-name">{p.name}</h3>
+    <div class="project-loc">{p.loc}</div>
+    <div class="project-divider"></div>
+    <div class="project-area">{p.area}</div>
+  </div>
+</div>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .project-img {
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #e9e1d2;
+    background-image: repeating-linear-gradient(135deg, transparent, transparent 9px, rgba(110, 79, 42, 0.07) 9px, rgba(110, 79, 42, 0.07) 10px);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .project-tag {
+    margin: 14px;
+    font: 700 9px "Space Mono", monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 2px;
+  }
+
+  .project-img-label {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    font: 500 10px "Space Mono", monospace;
+    letter-spacing: 0.08em;
+    color: #9a917f;
+    text-transform: uppercase;
+  }
+
+  .project-name {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: 23px;
+    color: var(--ink);
+    margin: 0 0 6px;
+  }
+
+  .project-loc {
+    font-size: 14px;
+    color: var(--ink2);
+    margin-bottom: 12px;
+  }
+
+  .project-divider {
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+  }
+
+  .project-area {
+    font: 600 11px "Space Mono", monospace;
+    letter-spacing: 0.06em;
+    color: var(--ink3);
+    text-transform: uppercase;
+  }
+</style>

@@ -1,0 +1,125 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PullQuote from "../components/PullQuote.astro";
+import TimelineItem from "../components/TimelineItem.astro";
+import ValueCard from "../components/ValueCard.astro";
+import { timeline, values } from "../data/site";
+---
+<BaseLayout
+  title="About"
+  description="The builder behind the brand — Sagar Barot's journey from a family building site to leading SNB Group across Mumbai's finest developments."
+  currentPage="about"
+>
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">About</div>
+        <h1 class="hero-title">The builder behind the brand.</h1>
+        <p class="hero-text">A real estate practice handed down a generation, carried forward with discipline — and a conviction that good buildings are an act of service to the people who live in them.</p>
+      </div>
+      <div class="hero-image">
+        <div class="placeholder-img" style="aspect-ratio:4/5;width:100%">
+          <span style="font:500 11px 'Space Mono',monospace;letter-spacing:.1em;color:#9a917f;text-transform:uppercase;background:var(--panel);padding:6px 12px;border-radius:2px">Portrait — at work</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="story">
+    <p class="story-p story-p--lead">I grew up inside a building site. Long before it was my profession, real estate was the dinner-table conversation in our home — the texture of a stone, the honesty of a layout, the trust between a developer and the families who hand over their homes for redevelopment.</p>
+    <p class="story-p">When I took the practice forward as SNB Group, I wanted to keep what my family did well — relationships, patience, an eye for craft — and add to it the rigour a modern Mumbai demands: transparent processes, careful planning and precise execution on redevelopment journeys that are never simple.</p>
+    <p class="story-p">Over twenty-five years we have delivered luxury residences, bungalows, villas, commercial and mixed-use spaces — from the lanes of Vile Parle to a township in Karjat. The scale changes. The standard does not.</p>
+  </article>
+
+  <PullQuote quote="A home is the largest decision most families ever make. The least we owe them is the truth, and a building that ages with grace." attribution="Sagar Barot" />
+
+  <section class="timeline">
+    <div class="container" style="max-width:1000px;padding:96px 32px">
+      <div class="eyebrow">The Journey</div>
+      <div>
+        {timeline.map((t) => (
+          <TimelineItem item={t} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="container" style="padding:96px 32px">
+      <div class="eyebrow">What I build by</div>
+      <div class="values-grid">
+        {values.map((v) => (
+          <ValueCard value={v} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 32px 40px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: clamp(38px, 4.8vw, 62px);
+    line-height: 1.03;
+    letter-spacing: -0.015em;
+    margin: 0 0 24px;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .hero-text {
+    font-size: 18px;
+    line-height: 1.62;
+    color: var(--ink2);
+    max-width: 540px;
+    margin: 0;
+  }
+
+  .story {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 32px;
+  }
+
+  .story-p {
+    font-size: 17px;
+    line-height: 1.72;
+    color: var(--ink2);
+    margin: 0 0 24px;
+  }
+
+  .story-p--lead {
+    font-size: 19px;
+    color: var(--ink);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+
+  .timeline {
+    border-top: 1px solid var(--rule);
+  }
+
+  .values {
+    border-top: 1px solid var(--rule);
+  }
+</style>

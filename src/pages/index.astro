@@ -1,0 +1,314 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import StatBlock from "../components/StatBlock.astro";
+import PressStrip from "../components/PressStrip.astro";
+import PostCard from "../components/PostCard.astro";
+import { stats, allPosts, press, snbStats } from "../data/site";
+---
+<BaseLayout
+  title="Sagar Barot — Builder, Mumbai"
+  description="Second-generation real estate developer, Founder & Managing Director of SNB Group. Building luxury residences, redevelopment and commercial spaces across Mumbai for over 25 years."
+  currentPage="home"
+>
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Founder & Managing Director — SNB Group</div>
+        <h1 class="hero-title">A second-generation builder shaping how Mumbai lives, works & grows.</h1>
+        <p class="hero-text">I'm Sagar Barot. For over two decades I have led SNB Group in crafting luxury residences, redevelopment and commercial spaces across Mumbai — built on intent, transparency and longevity.</p>
+        <div class="hero-actions">
+          <a href="/ventures/" class="btn-primary">Explore ventures</a>
+          <a href="/about/" class="btn-secondary">Read my story</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="placeholder-img" style="aspect-ratio:4/5">
+          <span style="margin-bottom:18px;font:500 11px 'Space Mono',monospace;letter-spacing:.1em;color:#9a917f;text-transform:uppercase;background:var(--panel);padding:6px 12px;border-radius:2px">Portrait — Sagar Barot</span>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">25<span class="hero-stat-suffix">+ yrs</span></div>
+          <div class="hero-stat-label">Building Mumbai</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <StatBlock stats={stats} />
+  </section>
+
+  <section class="philosophy">
+    <div class="philosophy-inner">
+      <div class="eyebrow" style="text-align:center">Philosophy</div>
+      <p class="philosophy-quote">"We don't build to trends. We build for how people actually live — and for whoever lives there next."</p>
+      <div class="philosophy-attribution">Sagar Barot</div>
+    </div>
+  </section>
+
+  <section class="section-panel">
+    <div class="container" style="padding:96px 32px">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">The Venture</div>
+          <h2 class="section-title">SNB Group</h2>
+        </div>
+        <a href="/ventures/" class="btn-text">View ventures →</a>
+      </div>
+      <div class="snb-grid">
+        <div class="placeholder-img" style="aspect-ratio:16/11">
+          <span>Project hero image</span>
+        </div>
+        <div>
+          <p class="snb-text">A trusted second-generation real estate developer in Mumbai, specialising in luxury residences, bungalows, villas and redevelopment across residential, commercial and mixed-use spaces.</p>
+          <p class="snb-text" style="margin:0 0 28px">From Vile Parle to a 7.25-lakh sq.ft township in Karjat — disciplined execution, transparent process and spaces designed to perform well beyond handover.</p>
+          <div class="snb-stats">
+            {snbStats.map((s) => (
+              <div>
+                <div class="snb-stat-num">{s.n}</div>
+                <div class="snb-stat-label">{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" style="padding:96px 32px">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">Writing & Notes</div>
+        <h2 class="section-title">On building, well</h2>
+      </div>
+      <a href="/blog/" class="btn-text">All writing →</a>
+    </div>
+    <div class="post-grid">
+      {allPosts.map((p) => (
+        <PostCard post={p} />
+      ))}
+    </div>
+  </section>
+
+  <PressStrip press={press} />
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Let's build something lasting.</h2>
+      <p class="cta-text">Whether it's a redevelopment, a partnership or a conversation about Mumbai's next — I'd be glad to hear from you.</p>
+      <a href="/contact/" class="cta-btn">Get in touch</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 32px 40px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: clamp(40px, 5.2vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    margin: 0 0 24px;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .hero-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink2);
+    max-width: 520px;
+    margin: 0 0 32px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .hero-image-wrapper {
+    position: relative;
+  }
+
+  .hero-image-wrapper .placeholder-img {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .hero-stat-card {
+    position: absolute;
+    bottom: -18px;
+    left: -18px;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 14px 18px;
+    box-shadow: 0 14px 40px rgba(27, 25, 22, 0.1);
+  }
+
+  .hero-stat-num {
+    font-family: "Newsreader", serif;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .hero-stat-suffix {
+    font-size: 15px;
+    color: var(--accent-deep);
+  }
+
+  .hero-stat-label {
+    font: 600 9px "Space Mono", monospace;
+    letter-spacing: 0.14em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .philosophy {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 104px 32px;
+    text-align: center;
+  }
+
+  .philosophy-quote {
+    font-family: "Newsreader", serif;
+    font-weight: 300;
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 28px;
+    text-wrap: balance;
+  }
+
+  .philosophy-attribution {
+    font-family: "Newsreader", serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--accent-deep);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 44px;
+  }
+
+  .section-title {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: clamp(30px, 3.4vw, 46px);
+    line-height: 1.05;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .snb-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .snb-text {
+    font-size: 18px;
+    line-height: 1.62;
+    color: var(--ink2);
+    margin: 0 0 22px;
+  }
+
+  .snb-stats {
+    display: flex;
+    gap: 36px;
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+  }
+
+  .snb-stat-num {
+    font-family: "Newsreader", serif;
+    font-size: 30px;
+    color: var(--ink);
+  }
+
+  .snb-stat-label {
+    font: 600 9px "Space Mono", monospace;
+    letter-spacing: 0.14em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .cta-section {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .cta-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 104px 32px;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.08;
+    margin: 0 0 22px;
+    color: var(--bg);
+  }
+
+  .cta-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(244, 239, 230, 0.7);
+    max-width: 520px;
+    margin: 0 auto 34px;
+  }
+
+  .cta-btn {
+    background: var(--bg);
+    color: var(--ink);
+    border: none;
+    cursor: pointer;
+    padding: 16px 30px;
+    font: 600 12px "Hanken Grotesk";
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .cta-btn:hover {
+    background: var(--accent);
+  }
+</style>

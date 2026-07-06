@@ -1,0 +1,79 @@
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <h2 class="newsletter-title">Get new notes by email.</h2>
+    <p class="newsletter-desc">Occasional, considered. No noise.</p>
+    <form class="newsletter-form" onsubmit="e => e.preventDefault()">
+      <input placeholder="you@email.com" class="newsletter-input" />
+      <button type="submit" class="newsletter-btn">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    border-top: 1px solid var(--rule);
+    background: var(--panel);
+  }
+
+  .newsletter-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 32px;
+    text-align: center;
+  }
+
+  .newsletter-title {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0 0 14px;
+  }
+
+  .newsletter-desc {
+    font-size: 16px;
+    color: var(--ink2);
+    margin: 0 0 28px;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 14px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: var(--bg);
+    font: 400 15px "Hanken Grotesk";
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .newsletter-input:focus {
+    border-color: var(--accent-deep);
+  }
+
+  .newsletter-btn {
+    background: var(--ink);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    padding: 0 24px;
+    font: 600 12px "Hanken Grotesk";
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .newsletter-btn:hover {
+    background: var(--accent-deep);
+  }
+</style>

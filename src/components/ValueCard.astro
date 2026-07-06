@@ -1,0 +1,42 @@
+---
+export interface Props {
+  value: { i: string; t: string; d: string };
+}
+const { value: v } = Astro.props;
+---
+
+<div class="value-card">
+  <div class="value-icon">{v.i}</div>
+  <h3 class="value-title">{v.t}</h3>
+  <p class="value-desc">{v.d}</p>
+</div>
+
+<style>
+  .value-card {
+    background: var(--bg);
+    padding: 34px 26px;
+    min-height: 220px;
+  }
+
+  .value-icon {
+    font-family: "Newsreader", serif;
+    font-size: 24px;
+    color: var(--accent-deep);
+    margin-bottom: 18px;
+  }
+
+  .value-title {
+    font-family: "Newsreader", serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+
+  .value-desc {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink2);
+    margin: 0;
+  }
+</style>
