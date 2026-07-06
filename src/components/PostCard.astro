@@ -3,15 +3,17 @@ export interface Props {
   post: {
     cat: string;
     title: string;
+    slug: string;
     excerpt?: string;
     meta: string;
   };
   featured?: boolean;
 }
 const { post: p, featured } = Astro.props;
+const href = p?.slug ? `/blog/${p.slug}/` : "#";
 ---
 
-<div class={`post-card${featured ? " post-card--featured" : ""}`}>
+<a href={href} class={`post-card${featured ? " post-card--featured" : ""}`}>
   {featured ? (
     <div class="post-featured-inner">
       <div class="post-img post-img--featured">
@@ -35,16 +37,23 @@ const { post: p, featured } = Astro.props;
       <div class="post-meta">{p.meta}</div>
     </>
   )}
-</div>
+</a>
 
 <style>
   .post-card {
     text-align: left;
-    cursor: default;
+    cursor: pointer;
     padding: 0;
     display: flex;
     flex-direction: column;
     gap: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+  }
+
+  .post-card:hover {
+    opacity: 0.8;
   }
 
   .post-card--featured {

@@ -56,15 +56,6 @@ export const projects = [
   { name: "Nayak Bungalow", loc: "MG Road, Vile Parle East", area: "52,000 sq.ft", ...tagDone },
 ];
 
-export const allPosts = [
-  { cat: "Redevelopment", title: "Why redevelopment is Mumbai\u2019s most honest form of growth", excerpt: "Density done right is not about squeezing in more \u2014 it is about giving existing residents a better life on the same land.", meta: "Mar 2026 \u00b7 6 min read" },
-  { cat: "Design", title: "Designing for how families actually live", excerpt: "The brief that matters is rarely on paper. It is in the way a kitchen meets a living room, and where the light lands at 6pm.", meta: "Feb 2026 \u00b7 5 min read" },
-  { cat: "Leadership", title: "The second-generation advantage in a family business", excerpt: "Inheriting a practice is not inheriting a playbook. It is inheriting relationships \u2014 and the responsibility to renew them.", meta: "Feb 2026 \u00b7 7 min read" },
-  { cat: "Real Estate", title: "Reading a Mumbai micro-market before you build", excerpt: "Two streets apart, the same square foot tells a different story. Here is how I learned to listen to a locality.", meta: "Jan 2026 \u00b7 6 min read" },
-  { cat: "Design", title: "Longevity over trend: materials that age well", excerpt: "A building is judged not on handover day, but ten monsoons later. That changes every material decision.", meta: "Jan 2026 \u00b7 4 min read" },
-  { cat: "Redevelopment", title: "Transparency as a redevelopment strategy", excerpt: "When residents can see the process, trust compounds \u2014 and timelines get shorter for everyone involved.", meta: "Dec 2025 \u00b7 5 min read" },
-];
-
 export const press = ["ET Realty", "Mumbai Mirror", "CREDAI", "NAREDCO", "Property Today"];
 
 export const site = {

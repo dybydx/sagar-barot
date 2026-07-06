@@ -2,9 +2,24 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PostCard from "../components/PostCard.astro";
 import Newsletter from "../components/Newsletter.astro";
-import { allPosts } from "../data/site";
-const featured = allPosts[0];
-const posts = allPosts.slice(1);
+import { getCollection } from "astro:content";
+
+const allPosts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const posts = allPosts.map((p) => {
+  const d = p.data.date;
+  return {
+    cat: p.data.category,
+    title: p.data.title,
+    slug: p.id.replace(/\.(md|mdx)$/, ""),
+    excerpt: p.data.excerpt,
+    meta: `${months[d.getMonth()]} ${d.getFullYear()} \u00b7 ${p.data.readTime}`,
+  };
+});
+const featured = posts.length > 0 ? posts[0] : null;
+const rest = featured ? posts.slice(1) : [];
 ---
 <BaseLayout
   title="Blog"
@@ -19,21 +34,25 @@ const posts = allPosts.slice(1);
     </div>
   </section>
 
-  <section class="featured">
-    <div class="container" style="padding:0 32px 40px">
-      <PostCard post={featured} featured={true} />
-    </div>
-  </section>
-
-  <section class="posts">
-    <div class="container" style="padding:48px 32px 96px">
-      <div class="posts-grid">
-        {posts.map((p) => (
-          <PostCard post={p} />
-        ))}
+  {featured && (
+    <section class="featured">
+      <div class="container" style="padding:0 32px 40px">
+        <PostCard post={featured} featured={true} />
       </div>
-    </div>
-  </section>
+    </section>
+  )}
+
+  {rest.length > 0 && (
+    <section class="posts">
+      <div class="container" style="padding:48px 32px 96px">
+        <div class="posts-grid">
+          {rest.map((p) => (
+            <PostCard post={p} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <Newsletter />
 </BaseLayout>

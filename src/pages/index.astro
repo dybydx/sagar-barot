@@ -3,7 +3,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import StatBlock from "../components/StatBlock.astro";
 import PressStrip from "../components/PressStrip.astro";
 import PostCard from "../components/PostCard.astro";
-import { stats, allPosts, press, snbStats } from "../data/site";
+import { stats, press, snbStats } from "../data/site";
+import { getCollection } from "astro:content";
+
+const blogPosts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const homePosts = blogPosts.map((p) => {
+  const d = p.data.date;
+  return {
+    cat: p.data.category,
+    title: p.data.title,
+    slug: p.id.replace(/\.(md|mdx)$/, ""),
+    excerpt: p.data.excerpt,
+    meta: `${months[d.getMonth()]} ${d.getFullYear()} \u00b7 ${p.data.readTime}`,
+  };
+});
 ---
 <BaseLayout
   title="Sagar Barot — Builder, Mumbai"
@@ -74,20 +90,22 @@ import { stats, allPosts, press, snbStats } from "../data/site";
     </div>
   </section>
 
-  <section class="container" style="padding:96px 32px">
-    <div class="section-header">
-      <div>
-        <div class="eyebrow">Writing & Notes</div>
-        <h2 class="section-title">On building, well</h2>
+  {homePosts.length > 0 && (
+    <section class="container" style="padding:96px 32px">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Writing & Notes</div>
+          <h2 class="section-title">On building, well</h2>
+        </div>
+        <a href="/blog/" class="btn-text">All writing →</a>
       </div>
-      <a href="/blog/" class="btn-text">All writing →</a>
-    </div>
-    <div class="post-grid">
-      {allPosts.map((p) => (
-        <PostCard post={p} />
-      ))}
-    </div>
-  </section>
+      <div class="post-grid">
+        {homePosts.map((p) => (
+          <PostCard post={p} />
+        ))}
+      </div>
+    </section>
+  )}
 
   <PressStrip press={press} />
 
